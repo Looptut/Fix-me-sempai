@@ -10,26 +10,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed = 250f;
+    [SerializeField]
+    private PlayerInput playerInput;
 
     private Rigidbody2D rb;
-    private Vector2 input;
-
-    private const string VERTICAL = "Vertical";
-    private const string HORIZONTAL = "Horizontal";
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
-    {
-        input.x = Input.GetAxisRaw(HORIZONTAL);
-        input.y = Input.GetAxisRaw(VERTICAL);
-    }
-
     private void FixedUpdate()
     {
-        rb.velocity = input * Time.fixedDeltaTime * speed;
+        rb.velocity = playerInput.Direction * Time.fixedDeltaTime * speed;
     }
 }
