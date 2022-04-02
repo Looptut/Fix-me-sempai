@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5195147285000055628}
   - component: {fileID: 5195147285000055630}
-  - component: {fileID: 5195147285000055629}
+  - component: {fileID: 5495931142315407964}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5195147285000055629
+--- !u!114 &5495931142315407964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5195147285000055635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec37520be954d34a80ae0465e39cf20, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b41d9498242cf24e97d604c4526b224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillSpeed: 0.5
-  startPoints: 23
+  fillSpeed: 0.7
+  startPoints: 20
   maxPoints: 100
 --- !u!1 &5195147285024462545
 GameObject:

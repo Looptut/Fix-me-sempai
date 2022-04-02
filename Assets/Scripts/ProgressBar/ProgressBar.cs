@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Slider))]
 public class ProgressBar : MonoBehaviour
 {
     private Slider slider;
@@ -17,28 +18,26 @@ public class ProgressBar : MonoBehaviour
     {
         slider = gameObject.GetComponent<Slider>();
     }
-    // Start is called before the first frame update
     void Start()
     {
         ChangeProgress(startPoints);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (slider.value < targetProgress)
-            slider.value += fillSpeed * Time.deltaTime; 
+            slider.value += fillSpeed * Time.deltaTime;
         if (slider.value > targetProgress)
             slider.value -= fillSpeed * Time.deltaTime;
     }
 
-    public void ChangeProgress(int progressValue) 
+    public void ChangeProgress(int progressValue)
     {
         if ((currentPoints + progressValue) > maxPoints)
-            progressValue = maxPoints - currentPoints; 
+            progressValue = maxPoints - currentPoints;
         if ((currentPoints + progressValue) < 0)
             progressValue = -currentPoints;
         currentPoints += progressValue;
-        targetProgress = slider.value + (float)progressValue/maxPoints;
+        targetProgress = slider.value + (float)progressValue / maxPoints;
     }
 }
