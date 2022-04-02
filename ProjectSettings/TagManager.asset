@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Worker
   - SpriteInput
   layers:
   - Default
@@ -12,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Worker
+  - Player
   - 
   - 
   - 
