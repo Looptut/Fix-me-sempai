@@ -1,13 +1,16 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°Р¶Р°С‚РёСЏ РёРіСЂРѕРєРѕРј РєРЅРѕРїРєРё РІ Р±РѕСЃСЃ С„Р°Р№С‚Рµ
+/// </summary>
 public class BossFightHandler : MonoBehaviour
 {
     /// <summary>
-    /// Вызывается, когда игрок нажал на клавишу.
-    /// true - успех, false - промазал.
+    /// Р’С‹Р·С‹РІР°РµС‚СЃСЏ, РєРѕРіРґР° РёРіСЂРѕРє РЅР°Р¶Р°Р» РЅР° РєР»Р°РІРёС€Сѓ.
+    /// true - СѓСЃРїРµС…, false - РїСЂРѕРјР°Р·Р°Р».
     /// </summary>
     public static event Action<bool> onPlayerPress = delegate { };
 
