@@ -1,11 +1,11 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Таймер босс-файта
+/// РўР°Р№РјРµСЂ Р±РѕСЃСЃ-С„Р°Р№С‚Р°
 /// </summary>
 [RequireComponent(typeof(TMP_Text))]
 public class BossFightTimerView : MonoBehaviour
