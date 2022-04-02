@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,12 +15,23 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 input;
 
+    private bool canMove = true;
+
     private const string VERTICAL = "Vertical";
     private const string HORIZONTAL = "Horizontal";
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        BossFightController.onStartFight += OnStartFight;
+        BossFightController.onEndFight += OnEndFight;
+    }
+
+    private void OnDestroy()
+    {
+        BossFightController.onStartFight -= OnStartFight;
+        BossFightController.onEndFight -= OnEndFight;
     }
 
     private void Update()
@@ -30,6 +42,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = input * Time.fixedDeltaTime * speed;
+        rb.velocity = canMove ? input * Time.fixedDeltaTime * speed : Vector2.zero;
+    }
+
+    private void OnStartFight()
+    {
+        canMove = false;
+    }
+
+    private void OnEndFight(bool isSuccess)
+    {
+        canMove = true;
     }
 }
