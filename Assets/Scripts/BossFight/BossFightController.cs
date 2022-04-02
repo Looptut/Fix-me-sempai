@@ -19,6 +19,17 @@ public class BossFightController : MonoBehaviour
     /// </summary>
     public static event Action<bool> onEndFight = delegate { };
 
+    /// <summary>
+    /// Смена времени файта.
+    /// int - сколько времени осталось
+    /// </summary>
+    public static event Action<int> onTimeChange = delegate { };
+
+    /// <summary>
+    /// Секунд на файт
+    /// </summary>
+    public int SecondsToFight => secondsToFight;
+
     [SerializeField]
     [Min(1)]
     [Header("Количество удачных нажатий для победы")]
@@ -69,6 +80,21 @@ public class BossFightController : MonoBehaviour
         onStartFight();
     }
 
+    /// <summary>
+    /// Начать босс-файт c заданными параметрами
+    /// </summary>
+    /// <param name="targetSuccessCount"> Количество удачных нажатий для победы </param>
+    /// <param name="maxFailCount"> Максимум неудачных попыток </param>
+    /// <param name="secondsToFight"> Секунд на файт </param>
+    public void StartBossFight(int targetSuccessCount, int maxFailCount, int secondsToFight)
+    {
+        this.targetSuccessCount = targetSuccessCount;
+        this.maxFailCount = maxFailCount;
+        this.secondsToFight = secondsToFight;
+
+        StartBossFight();
+    }
+
     private IEnumerator Timer()
     {
         secondsLeft = secondsToFight;
@@ -78,6 +104,7 @@ public class BossFightController : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             secondsLeft--;
+            onTimeChange(secondsLeft);
 
             if (secondsLeft <= 0)
             {
@@ -103,7 +130,7 @@ public class BossFightController : MonoBehaviour
         {
             currFailCount++;
 
-            if (currFailCount >= targetSuccessCount)
+            if (currFailCount >= maxFailCount)
             {
                 EndFight(false);
             }
@@ -129,4 +156,14 @@ public class BossFightController : MonoBehaviour
             onEndFight(false);
         }
     }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            StartBossFight();
+        }
+    }
+#endif
 }
