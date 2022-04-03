@@ -22,11 +22,22 @@ public abstract class TweenBase : MonoBehaviour
     [SerializeField]
     protected float duration;
 
+    protected Tweener currTween;
+
     protected virtual void OnEnable()
     {
         if (playOnEnable)
         {
             Play();
+        }
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (currTween != null)
+        {
+            currTween.Kill();
+            currTween = null;
         }
     }
 
