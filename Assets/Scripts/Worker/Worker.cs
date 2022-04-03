@@ -13,6 +13,7 @@ public class Worker : MonoBehaviour
 
 
     [SerializeField] private bool isBeingTired = false;
+    [SerializeField] private bool isBeingBoss = false;
     public bool IsBeingTired
     {
         get => isBeingTired;
@@ -28,7 +29,7 @@ public class Worker : MonoBehaviour
             }
         }
     }
-
+    public bool IsBeingBoss() { return isBeingBoss; }
     [ContextMenu("Switch tired")]
     public void SwitchTired()
     {
