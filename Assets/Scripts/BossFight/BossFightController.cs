@@ -30,6 +30,8 @@ public class BossFightController : MonoBehaviour
     /// </summary>
     public int SecondsToFight => secondsToFight;
 
+    public Sprite BossIcon;
+
     [SerializeField]
     [Min(1)]
     [Header("Количество удачных нажатий для победы")]

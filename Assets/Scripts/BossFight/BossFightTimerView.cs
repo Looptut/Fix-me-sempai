@@ -41,7 +41,8 @@ public class BossFightTimerView : MonoBehaviour
 
     private void OnEndFight(bool isSuccess)
     {
-        text.text = string.Empty;
+        //TODO: заменить эту рофлянку
+        text.text = isSuccess ? "WIN" : "LOX";
     }
 
     private void OnTimeChange(int timeLeft)
