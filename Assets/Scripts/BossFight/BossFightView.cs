@@ -17,6 +17,12 @@ public class BossFightView : MonoBehaviour
     [SerializeField]
     private Image bossImage;
 
+    [Space]
+    [SerializeField]
+    private ParticleSystem smoke;
+    [SerializeField]
+    private ParticleSystem fire;
+
     private BossFightController controller;
 
     private void Start()
@@ -41,10 +47,18 @@ public class BossFightView : MonoBehaviour
             bossImage.sprite = controller.BossIcon;
 
         bossWindow.SetActive(true);
+        smoke.Stop();
+        fire.Play();
     }
 
     private void OnEndFight(bool isSuccess)
     {
+        if (isSuccess)
+        {
+            smoke.Play();
+            fire.Stop();
+        }
+
         Invoke(nameof(DisableWindow), delay);
     }
 
