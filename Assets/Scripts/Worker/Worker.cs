@@ -11,7 +11,7 @@ public class Worker : MonoBehaviour
     public event Action<Worker> OnAction = delegate { };
     public event Action<Worker> OnBeingTired = delegate { };
 
-
+    [SerializeField] private Transform fire;
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
     public bool IsBeingTired
@@ -25,10 +25,20 @@ public class Worker : MonoBehaviour
                 if (isBeingTired)
                 {
                     OnBeingTired.Invoke(this);
+                    if (fire != null)
+                        fire.gameObject.SetActive(true);
                 }
             }
         }
     }
+
+
+    private void Start()
+    {
+        if (fire != null)
+            fire.gameObject.SetActive(false);
+    }
+
     public bool IsBeingBoss() { return isBeingBoss; }
     [ContextMenu("Switch tired")]
     public void SwitchTired()

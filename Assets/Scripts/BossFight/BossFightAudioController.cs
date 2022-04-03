@@ -12,7 +12,10 @@ public class BossFightAudioController : MonoBehaviour
     [SerializeField]
     private AudioSource soundsSource;
     [SerializeField]
-    private AudioSource musicSource;
+    private AudioSource fireSource;
+    [SerializeField]
+    private AudioSource smokeSource;
+
 
     [SerializeField]
     private AudioClip winClip;
@@ -33,16 +36,17 @@ public class BossFightAudioController : MonoBehaviour
 
     private void OnStartFight()
     {
-        musicSource.Play();
+        fireSource.Play();
         BossFightHandler.onPlayerPress += OnPlayerPress;
     }
 
     private void OnEndFight(bool isSuccess)
     {
-        musicSource.Stop();
+        fireSource.Stop();
 
         if (isSuccess)
         {
+            smokeSource.Play();
             soundsSource.PlayOneShot(winClip);
         }
 
