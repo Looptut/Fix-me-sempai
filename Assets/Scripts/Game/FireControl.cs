@@ -82,7 +82,7 @@ public class FireControl : MonoBehaviour
         if (lastWorkerFire + levels[currLevelIndex].Interval > Time.time - startTime) return;
 
         int spawnCount = Math.Min(levels[currLevelIndex].WorkersCount, workers.Count);
-        Debug.Log($"WORKERS: {spawnCount}");
+
         for (int i = 0; i < spawnCount; i++)
         {
             int rand = Random.Range(0, workers.Count);
@@ -101,7 +101,12 @@ public class FireControl : MonoBehaviour
         {
             if (Time.time - startTime > bossTimer[i])
             {
-                Debug.Log($"BOSS: {bossTimer[i]}");
+                if (bosses.Count == 0)
+                {
+                    Debug.LogError("Боссы закончились!");
+                    return;
+                }
+
                 int rand = Random.Range(0, bosses.Count);
                 Worker boss = bosses[rand];
                 boss.IsBeingTired = true;

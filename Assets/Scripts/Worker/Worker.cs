@@ -14,11 +14,14 @@ public class Worker : MonoBehaviour
     public event Action<Worker> OnBeingTired = delegate { };
     public static Action OnBeingBoss = delegate { };
 
+    public Transform CheckPoint => checkPoint;
+
     [SerializeField] private BossFightController bossFightController;
     [SerializeField] private PlayerInput player;
     [SerializeField] private Transform fire;
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
+    [SerializeField] private Transform checkPoint;
 
     public bool IsBeingTired
     {
