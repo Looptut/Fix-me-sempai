@@ -40,7 +40,9 @@ public class PlayerActionHandler : MonoBehaviour
     private void MakeWorkerAction()
     {
         if (currentActiveWorker != null)
+        {
             currentActiveWorker.PerformAction();
+        }
     }
 
     private void OnDestroy()
@@ -52,6 +54,8 @@ public class PlayerActionHandler : MonoBehaviour
                 worker.OnEnterZone -= SetActiveWorker;
             }
         }
+        if (playerInput != null)
+            playerInput.OnInputAction -= MakeWorkerAction;
     }
 
 }
