@@ -340,6 +340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Fight Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5418813826090487058, guid: 033b3f07158d55f4f940318e4c87d7c9, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1942359832}
     - target: {fileID: 5418813826090487059, guid: 033b3f07158d55f4f940318e4c87d7c9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
