@@ -23,6 +23,8 @@ public class BossFightView : MonoBehaviour
     {
         controller = FindObjectOfType<BossFightController>();
 
+        bossWindow.SetActive(false);
+
         BossFightController.onStartFight += OnStartFight;
         BossFightController.onEndFight += OnEndFight;
     }
