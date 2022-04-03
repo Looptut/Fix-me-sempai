@@ -25,6 +25,16 @@ public class BossFightView : MonoBehaviour
 
     private BossFightController controller;
 
+    private void Awake()
+    {
+        Canvas canvas = GetComponent<Canvas>();
+
+        if (canvas != null && canvas.worldCamera == null)
+        {
+            canvas.worldCamera = Camera.main;
+        }
+    }
+
     private void Start()
     {
         controller = FindObjectOfType<BossFightController>();
