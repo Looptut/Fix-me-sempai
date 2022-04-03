@@ -26,18 +26,22 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void DoAction()
+    public void DoAction(Transform fire)
     {
         if (coroutine == null)
         {
-            coroutine = StartCoroutine(Extinguisher());
+            coroutine = StartCoroutine(Extinguisher(fire));
         }
     }
 
-    private IEnumerator Extinguisher()
+    private IEnumerator Extinguisher(Transform fire)
     {
         movement.CanMove = false;
+        extinguisher.transform.position = fire.position;
+        extinguisher.gameObject.SetActive(true);
+        fire.gameObject.SetActive(false);
         yield return new WaitForSeconds(extinguisherAwait);
+        extinguisher.gameObject.SetActive(false);
         movement.CanMove = true;
         coroutine = null;
     }
