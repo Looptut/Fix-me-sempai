@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
-    public event Action OnInputAction;
+    public event Action OnInputAction = delegate { };
 
     [SerializeField] private KeyCode keyInput = KeyCode.E;
     [SerializeField] private CustomEvent inputEvent;
@@ -18,9 +18,23 @@ public class PlayerInput : MonoBehaviour
 
     private Coroutine coroutine;
 
+    private bool isBossFight;
+
+    private void Start()
+    {
+        BossFightController.onStartFight += OnStartFight;
+        BossFightController.onEndFight += OnEndFight;
+    }
+
+    private void OnDestroy()
+    {
+        BossFightController.onStartFight -= OnStartFight;
+        BossFightController.onEndFight -= OnEndFight;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(keyInput) && inputEvent.IsActive)
+        if (Input.GetKeyDown(keyInput) && inputEvent.IsActive && !isBossFight && coroutine == null)
         {
             OnInputAction.Invoke();
         }
@@ -44,5 +58,15 @@ public class PlayerInput : MonoBehaviour
         extinguisher.gameObject.SetActive(false);
         movement.CanMove = true;
         coroutine = null;
+    }
+
+    private void OnStartFight()
+    {
+        isBossFight = true;
+    }
+
+    private void OnEndFight(bool isSuccess)
+    {
+        isBossFight = false;
     }
 }

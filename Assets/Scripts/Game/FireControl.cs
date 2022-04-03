@@ -1,9 +1,129 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+
+[Serializable]
+public struct Level
+{
+    [Header("Пройдено время с начала игры для этого уровня")]
+    public int LevelTime;
+    [Header("Интервал для спавна работников")]
+    public int Interval;
+    [Header("Работников возгарает каждый интервал")]
+    public int WorkersCount;
+}
 
 public class FireControl : MonoBehaviour
 {
+    [SerializeField]
+    [Header("Время появление каждого босса")]
+    private List<int> bossTimer = new List<int>() { 10, 20, 30 };
+    [SerializeField]
+    [Header("Уровни")]
+    private List<Level> levels;
+
+    private List<Worker> workers;
+    private List<Worker> bosses;
+
+    private float startTime;
+    private float lastWorkerFire = 0f;
+
+    private int currLevelIndex = 0;
+
+    private void Start()
+    {
+        FindWorkers();
+
+        startTime = Time.time;
+
+        StartControl();
+    }
+
+    private void FindWorkers()
+    {
+        workers = new List<Worker>(FindObjectsOfType<Worker>().Where((c) => !c.IsBeingBoss));
+        bosses = new List<Worker>(FindObjectsOfType<Worker>().Where((c) => c.IsBeingBoss));
+    }
+
+    public void StartControl()
+    {
+        StartCoroutine(Control());
+    }
+
+    private IEnumerator Control()
+    {
+        while (enabled)
+        {
+            CheckLevel();
+            SpawnWorkerFire();
+            SpawnBossFire();
+
+            yield return null;
+        }
+    }
+
+    private void CheckLevel()
+    {
+        for (int i = currLevelIndex; i < levels.Count; i++)
+        {
+            if (Time.time - startTime >= levels[i].LevelTime)
+            {
+                currLevelIndex = i;
+            }
+        }
+    }
+
+    private void SpawnWorkerFire()
+    {
+        if (lastWorkerFire + levels[currLevelIndex].Interval > Time.time - startTime) return;
+
+        int spawnCount = Math.Min(levels[currLevelIndex].WorkersCount, workers.Count);
+
+        for (int i = 0; i < spawnCount; i++)
+        {
+            int rand = Random.Range(0, workers.Count);
+            Worker worker = workers[rand];
+            worker.IsBeingTired = true;
+
+            workers.Remove(worker);
+            worker.OnAction += ReturnWorkerToPool;
+        }
+        lastWorkerFire = Time.time;
+    }
+
+    private void SpawnBossFire()
+    {
+        for (int i = 0; i < bossTimer.Count; i++)
+        {
+            if (Time.time - startTime > bossTimer[i])
+            {
+                if (bosses.Count == 0)
+                {
+                    Debug.LogError("Боссы закончились!");
+                    return;
+                }
+
+                int rand = Random.Range(0, bosses.Count);
+                Worker boss = bosses[rand];
+                boss.IsBeingTired = true;
+                bosses.Remove(boss);
+                bossTimer.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
+    private void ReturnWorkerToPool(Worker worker)
+    {
+        worker.OnAction -= ReturnWorkerToPool;
+        workers.Add(worker);
+    }
+
+    /*
     private const string WORKER_TAG = "Worker";
     private List<Worker> workers = new List<Worker>();
     private List<Worker> workersSelected = new List<Worker>();
@@ -64,7 +184,7 @@ public class FireControl : MonoBehaviour
 
         workersSelected = new List<Worker>();
         foreach (Worker ow in workers)
-            if (!ow.IsBeingTired && !ow.IsBeingBoss())
+            if (!ow.IsBeingTired && !ow.IsBeingBoss)
                 workersSelected.Add(ow);
         while (workers.Count - workersSelected.Count < fireCount.workers)
         {
@@ -93,7 +213,7 @@ public class FireControl : MonoBehaviour
         if (fireCount.workers < maxFireCount.workers)
         {
             foreach (Worker ow in workers)
-                if (!ow.IsBeingTired && !ow.IsBeingBoss())
+                if (!ow.IsBeingTired && !ow.IsBeingBoss)
                     workersSelected.Add(ow);
             workersSelected[Random.Range(0, workersSelected.Count)].IsBeingTired = true;
             fireCount.workers++;
@@ -101,7 +221,7 @@ public class FireControl : MonoBehaviour
         else if (fireCount.bosses < maxFireCount.bosses)
         {
             foreach (Worker ow in workers)
-                if (!ow.IsBeingTired && ow.IsBeingBoss())
+                if (!ow.IsBeingTired && ow.IsBeingBoss)
                     workersSelected.Add(ow);
             workersSelected[Random.Range(0, workersSelected.Count)].IsBeingTired = true;
             fireCount.bosses++;
@@ -129,4 +249,5 @@ public class FireControl : MonoBehaviour
                 break;
         }
     }
+    */
 }
