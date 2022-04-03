@@ -460,6 +460,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1034786743}
     m_Modifications:
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     - target: {fileID: 4182798335344668968, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -516,6 +532,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fafba58271d380742bc58a534e04a72c, type: 3}
 --- !u!4 &601231192 stripped
@@ -964,6 +996,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1034786743}
     m_Modifications:
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     - target: {fileID: 4182798335344668968, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1020,6 +1068,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fafba58271d380742bc58a534e04a72c, type: 3}
 --- !u!4 &1057780359 stripped
@@ -1094,10 +1158,26 @@ PrefabInstance:
       propertyPath: OnEnterZone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     - target: {fileID: 3228776449696144261, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     - target: {fileID: 4182798335344668968, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1162,21 +1242,37 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     - target: {fileID: 7368227872454720344, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: fire
       value: 
       objectReference: {fileID: 1407444244}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1185,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1268187700}
+      objectReference: {fileID: 24549264}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1200,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_IsBeingTired
+      value: DoAction
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1208,7 +1304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Worker, Assembly-CSharp
+      value: PlayerInput, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1219,12 +1315,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1407444244}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1407444244}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.Transform, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: ActionDone.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1633,6 +1733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1349872933}
   - component: {fileID: 1349872934}
+  - component: {fileID: 1349872935}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -1667,6 +1768,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 24549264}
+--- !u!114 &1349872935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349872932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9d1956f69f95a49853ecdb776b0184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossIcon: {fileID: 21300000, guid: 941b797538643f8449fe7cdd6c2decd5, type: 3}
+  targetSuccessCount: 1
+  maxFailCount: 0
+  secondsToFight: 5
 --- !u!4 &1407444244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3228776449696499621, guid: fafba58271d380742bc58a534e04a72c, type: 3}
@@ -3136,6 +3253,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1034786743}
     m_Modifications:
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 2406793517899901810, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 3459214409422134563, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     - target: {fileID: 4182798335344668968, guid: fafba58271d380742bc58a534e04a72c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3192,5 +3325,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 6558520827148536173, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1349872935}
+    - target: {fileID: 7436157453184223903, guid: fafba58271d380742bc58a534e04a72c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 24549264}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fafba58271d380742bc58a534e04a72c, type: 3}

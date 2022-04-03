@@ -34,7 +34,7 @@ public class BubbleShower : MonoBehaviour
 
     private void ShowBubble(Worker worker)
     {
-        SetActivity(worker.IsBeingTired && true);
+        SetActivity((worker.IsBeingTired || worker.IsBeingBoss) && true);
     }
 
     private void SetActivity(bool isActive)
