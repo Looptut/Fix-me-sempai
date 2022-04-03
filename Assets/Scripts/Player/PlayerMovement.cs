@@ -14,8 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 input;
+    public Vector2 Input => input;
 
-    private bool canMove = true;
+    public bool CanMove = true;
 
     private const string VERTICAL = "Vertical";
     private const string HORIZONTAL = "Horizontal";
@@ -36,22 +37,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        input.x = Input.GetAxisRaw(HORIZONTAL);
-        input.y = Input.GetAxisRaw(VERTICAL);
+        input.x = UnityEngine.Input.GetAxisRaw(HORIZONTAL);
+        input.y = UnityEngine.Input.GetAxisRaw(VERTICAL);
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = canMove ? input * Time.fixedDeltaTime * speed : Vector2.zero;
+        rb.velocity = CanMove ? input * Time.fixedDeltaTime * speed : Vector2.zero;
     }
 
     private void OnStartFight()
     {
-        canMove = false;
+        CanMove = false;
     }
 
     private void OnEndFight(bool isSuccess)
     {
-        canMove = true;
+        CanMove = true;
     }
 }
