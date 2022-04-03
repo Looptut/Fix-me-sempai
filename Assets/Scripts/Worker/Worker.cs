@@ -10,7 +10,10 @@ public class Worker : MonoBehaviour
 
     public event Action<Worker> OnAction = delegate { };
     public event Action<Worker> OnBeingTired = delegate { };
+    public static Action OnBeingBoss = delegate { };
 
+    [SerializeField] private BossFightController boss;
+    [SerializeField] private PlayerInput player;
     [SerializeField] private Transform fire;
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
@@ -31,7 +34,11 @@ public class Worker : MonoBehaviour
             }
         }
     }
-
+    public bool IsBeingBoss
+    {
+        get => isBeingBoss;
+        set => isBeingBoss = value;
+    }
 
     private void Start()
     {
@@ -39,16 +46,31 @@ public class Worker : MonoBehaviour
             fire.gameObject.SetActive(false);
     }
 
-    public bool IsBeingBoss() { return isBeingBoss; }
+
     [ContextMenu("Switch tired")]
     public void SwitchTired()
     {
         IsBeingTired = !IsBeingTired;
     }
+    [ContextMenu("Switch boss")]
+    public void SwitchBoss()
+    {
+        IsBeingBoss = !IsBeingBoss;
+    }
 
     public virtual void PerformAction()
     {
         OnAction.Invoke(this);
+
+        if (IsBeingTired)
+        {
+            fire.gameObject.SetActive(false);
+            player.DoAction(fire);
+        }
+        if (isBeingBoss)
+        {
+            boss.StartBossFight();
+        }
         ActionDone.Invoke();
     }
 }
