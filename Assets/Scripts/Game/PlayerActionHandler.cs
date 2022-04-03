@@ -5,36 +5,28 @@ using UnityEngine;
 
 public class PlayerActionHandler : MonoBehaviour
 {
-    private const string WORKER_TAG = "Worker";
-
+    [SerializeField]
+    private float nearDistance = 1f;
     [SerializeField] private PlayerInput playerInput;
 
-    private List<WorkerTriggerZone> workers = new List<WorkerTriggerZone>();
+    private List<Worker> workers = new List<Worker>();
+
+    private List<Worker> nearTiredWorkers = new List<Worker>();
+
     private Worker currentActiveWorker;
+
     private void Awake()
     {
-        var array = GameObject.FindGameObjectsWithTag(WORKER_TAG);
-
-        WorkerTriggerZone zone;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i].TryGetComponent(out zone))
-            {
-                workers.Add(zone);
-            }
-        }
-
-        foreach (var worker in workers)
-        {
-            worker.OnEnterZone += SetActiveWorker;
-        }
+        workers = new List<Worker>(FindObjectsOfType<Worker>());
 
         if (playerInput != null)
             playerInput.OnInputAction += MakeWorkerAction;
     }
-    private void SetActiveWorker(Worker worker)
+
+    private void OnDestroy()
     {
-        currentActiveWorker = worker;
+        if (playerInput != null)
+            playerInput.OnInputAction -= MakeWorkerAction;
     }
 
     private void MakeWorkerAction()
@@ -45,17 +37,27 @@ public class PlayerActionHandler : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void Update()
     {
-        foreach (var worker in workers)
+        nearTiredWorkers.Clear();
+
+        foreach (var w in workers)
         {
-            if (worker != null)
+            if (w.IsBeingTired && Vector3.Distance(w.CheckPoint.position, transform.position) <= nearDistance)
             {
-                worker.OnEnterZone -= SetActiveWorker;
+                nearTiredWorkers.Add(w);
             }
         }
-        if (playerInput != null)
-            playerInput.OnInputAction -= MakeWorkerAction;
-    }
 
+        currentActiveWorker = null;
+
+        float minNear = 100;
+        foreach (var w in nearTiredWorkers)
+        {
+            if (Vector3.Distance(w.CheckPoint.position, transform.position) < minNear)
+            {
+                currentActiveWorker = w;
+            }
+        }
+    }
 }
