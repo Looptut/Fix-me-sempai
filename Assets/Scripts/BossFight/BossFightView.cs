@@ -17,11 +17,29 @@ public class BossFightView : MonoBehaviour
     [SerializeField]
     private Image bossImage;
 
+    [Space]
+    [SerializeField]
+    private ParticleSystem smoke;
+    [SerializeField]
+    private ParticleSystem fire;
+
     private BossFightController controller;
+
+    private void Awake()
+    {
+        Canvas canvas = GetComponent<Canvas>();
+
+        if (canvas != null && canvas.worldCamera == null)
+        {
+            canvas.worldCamera = Camera.main;
+        }
+    }
 
     private void Start()
     {
         controller = FindObjectOfType<BossFightController>();
+
+        bossWindow.SetActive(false);
 
         BossFightController.onStartFight += OnStartFight;
         BossFightController.onEndFight += OnEndFight;
@@ -39,10 +57,18 @@ public class BossFightView : MonoBehaviour
             bossImage.sprite = controller.BossIcon;
 
         bossWindow.SetActive(true);
+        smoke.Stop();
+        fire.Play();
     }
 
     private void OnEndFight(bool isSuccess)
     {
+        if (isSuccess)
+        {
+            smoke.Play();
+            fire.Stop();
+        }
+
         Invoke(nameof(DisableWindow), delay);
     }
 
