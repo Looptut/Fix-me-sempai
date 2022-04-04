@@ -1,5 +1,95 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &229370579643631548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8653917152920287232}
+  m_Layer: 6
+  m_Name: bubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8653917152920287232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229370579643631548}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.32, y: 1.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4672528553308982926}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1753363089978548541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8102444079482246635}
+  m_Layer: 6
+  m_Name: bubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8102444079482246635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753363089978548541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.47, y: 1.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4672528553894157385}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2713730108936890119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8004417485110409536}
+  m_Layer: 6
+  m_Name: bubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8004417485110409536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2713730108936890119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.44, y: 1.63, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4672528554200889088}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4672528554543689563
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +180,36 @@ PolygonCollider2D:
       - {x: -0.7874088, y: 0.38491848}
       - {x: -0.71187496, y: 0.07573217}
       - {x: -0.84544754, y: -0.15339273}
+--- !u!1 &5060049395858746564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2315810304315089287}
+  m_Layer: 6
+  m_Name: bubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2315810304315089287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5060049395858746564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.38, y: 1.78, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4672528554282604277}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &208055843039133116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,6 +221,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3666687121748287647, guid: 1809dce3a1c410444a86632f6eff5e89, type: 3}
+      propertyPath: BubblePosition
+      value: 
+      objectReference: {fileID: 2315810304315089287}
     - target: {fileID: 4772424005831945033, guid: 1809dce3a1c410444a86632f6eff5e89, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -211,6 +335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorkerSitUpperRight
       objectReference: {fileID: 0}
+    - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
+      propertyPath: BubblePosition
+      value: 
+      objectReference: {fileID: 8004417485110409536}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
 --- !u!4 &4672528554200889088 stripped
@@ -277,6 +405,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9018500162614486760, guid: d3372ca8906b5d84bac910bce89141e7, type: 3}
+      propertyPath: BubblePosition
+      value: 
+      objectReference: {fileID: 8102444079482246635}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3372ca8906b5d84bac910bce89141e7, type: 3}
 --- !u!4 &4672528553894157385 stripped
@@ -291,6 +423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4672528554543689562}
     m_Modifications:
+    - target: {fileID: 525682854279136228, guid: 88de69c9e8f816d47b46c0da802cd869, type: 3}
+      propertyPath: BubblePosition
+      value: 
+      objectReference: {fileID: 8653917152920287232}
     - target: {fileID: 2351222044489877492, guid: 88de69c9e8f816d47b46c0da802cd869, type: 3}
       propertyPath: m_Name
       value: WorkerSitLowerRight

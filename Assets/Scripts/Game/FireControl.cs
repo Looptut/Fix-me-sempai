@@ -34,13 +34,15 @@ public class FireControl : MonoBehaviour
 
     private int currLevelIndex = 0;
 
+    public bool isTestingWithoutTutorial = false;
+
     private void Start()
     {
-        FindWorkers();
-
-        startTime = Time.time;
-
-        StartControl();
+        TutorialDialog.OnTutorialEnds += StartControl;
+        if (isTestingWithoutTutorial)
+        {
+            StartControl();
+        }
     }
 
     private void FindWorkers()
@@ -51,6 +53,8 @@ public class FireControl : MonoBehaviour
 
     public void StartControl()
     {
+        FindWorkers();
+        startTime = Time.time;
         StartCoroutine(Control());
     }
 
@@ -79,7 +83,8 @@ public class FireControl : MonoBehaviour
 
     private void SpawnWorkerFire()
     {
-        if (lastWorkerFire + levels[currLevelIndex].Interval > Time.time - startTime) return;
+        if (lastWorkerFire + levels[currLevelIndex].Interval > Time.time - startTime)
+            return;
 
         int spawnCount = Math.Min(levels[currLevelIndex].WorkersCount, workers.Count);
 
@@ -121,6 +126,10 @@ public class FireControl : MonoBehaviour
     {
         worker.OnAction -= ReturnWorkerToPool;
         workers.Add(worker);
+    }
+    private void OnDestroy()
+    {
+        TutorialDialog.OnTutorialEnds -= StartControl;
     }
 
     /*

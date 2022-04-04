@@ -114,3 +114,7 @@ Logs/AssetImportWorker0.log
 UserSettings/EditorUserSettings.asset
 UserSettings/EditorUserSettings.asset
 UserSettings/EditorUserSettings.asset
+Assets/Prefubs/View.meta
+Assets/Scripts/ProgressBar.meta
+Assets/Scripts/Timer.meta
+Assets/Prefubs.meta

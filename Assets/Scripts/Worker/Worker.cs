@@ -14,6 +14,7 @@ public class Worker : MonoBehaviour
     public event Action<Worker> OnBeingTired = delegate { };
     public static Action OnBeingBoss = delegate { };
 
+    public Transform BubblePosition;
     public Transform CheckPoint => checkPoint;
 
     [SerializeField] private BossFightController bossFightController;
@@ -33,7 +34,8 @@ public class Worker : MonoBehaviour
                 isBeingTired = value;
                 if (isBeingTired)
                 {
-                    if (IsBeingBoss) ATTENTION_BOSS_ON_FIRE();
+                    if (IsBeingBoss)
+                        ATTENTION_BOSS_ON_FIRE();
                     OnBeingTired.Invoke(this);
                     if (fire != null)
                         fire.gameObject.SetActive(true);
