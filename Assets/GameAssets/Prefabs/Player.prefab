@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7339747168891939505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.9, y: -0.40929943, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.35018, y: 0.35018, z: 0.35018}
   m_Children:
   - {fileID: 7339747170515417585}
   - {fileID: 7339747170630183010}
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb643adb80ac8f4ab4f7178d41d2d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 125
   CanMove: 1
 --- !u!114 &7339747168891939506
 MonoBehaviour:
@@ -243,6 +243,7 @@ MonoBehaviour:
   type: 1
   ease: 1
   duration: 1
+  useUnscaledTime: 1
   end: {x: 0, y: 0.3, z: 0}
   overrideStart: 0
   start: {x: 0, y: 0, z: 0}
@@ -307,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
       propertyPath: m_SortingOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
