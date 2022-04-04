@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class TimerDigital : MonoBehaviour
     public int hoursEnd;
     public float secondsDuration;
     public bool dayEnd;
+    public static event Action onTimeIsOver = delegate { };
 
     private int minutesDuration;
     private float secondsToPass;
@@ -33,6 +35,7 @@ public class TimerDigital : MonoBehaviour
             {
                 Debug.Log("Pora domoi");
                 dayEnd = true;
+                onTimeIsOver();
             }
             else
             {
