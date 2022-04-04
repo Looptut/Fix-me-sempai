@@ -26,15 +26,15 @@ public class TweenPosition : TweenBase
     protected override void PlayOnce()
     {
         transform.localPosition = startPos;
-        currTween = transform.DOLocalMove(end, duration).SetEase(ease);
+        currTween = transform.DOLocalMove(end, duration).SetEase(ease).SetUpdate(useUnscaledTime);
     }
 
     protected override void PlayPingPong()
     {
         transform.localPosition = startPos;
-        currTween = transform.DOLocalMove(end, duration).SetEase(ease).OnComplete(() =>
+        currTween = transform.DOLocalMove(end, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
         {
-            currTween = transform.DOLocalMove(startPos, duration).SetEase(ease).OnComplete(() =>
+            currTween = transform.DOLocalMove(startPos, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
             {
                 Play();
             });
@@ -44,7 +44,7 @@ public class TweenPosition : TweenBase
     protected override void PlayLoop()
     {
         transform.localPosition = startPos;
-        currTween = transform.DOLocalMove(end, duration).SetEase(ease).OnComplete(() =>
+        currTween = transform.DOLocalMove(end, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
         {
             Play();
         });

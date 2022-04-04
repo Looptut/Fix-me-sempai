@@ -230,8 +230,9 @@ MonoBehaviour:
   type: 0
   ease: 1
   duration: 0.5
+  useUnscaledTime: 1
   start: 0
-  end: 0.5
+  end: 1
 --- !u!1 &5418813825072275559
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +441,7 @@ MonoBehaviour:
   type: 0
   ease: 30
   duration: 1
+  useUnscaledTime: 1
   end: 1
   overrideStart: 1
   start: 0
@@ -608,6 +610,7 @@ MonoBehaviour:
   type: 0
   ease: 30
   duration: 1
+  useUnscaledTime: 1
   end: 1
   overrideStart: 1
   start: 0
@@ -705,6 +708,7 @@ MonoBehaviour:
   type: 1
   ease: 1
   duration: 2
+  useUnscaledTime: 1
   end: {x: 540, y: 0}
   overrideStart: 1
   start: {x: -540, y: 0}
@@ -814,7 +818,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -1010038127
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &5418813826090487053
 MonoBehaviour:
@@ -967,6 +971,7 @@ MonoBehaviour:
   type: 0
   ease: 30
   duration: 1
+  useUnscaledTime: 1
   end: 1
   overrideStart: 1
   start: 0

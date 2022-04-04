@@ -21,6 +21,8 @@ public abstract class TweenBase : MonoBehaviour
     protected Ease ease = Ease.Linear;
     [SerializeField]
     protected float duration;
+    [SerializeField]
+    protected bool useUnscaledTime = true;
 
     protected Tweener currTween;
 

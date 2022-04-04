@@ -108,7 +108,6 @@ public class FireControl : MonoBehaviour
             {
                 if (bosses.Count == 0)
                 {
-                    Debug.LogError("Боссы закончились!");
                     return;
                 }
 
