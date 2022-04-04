@@ -2899,8 +2899,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3666687121748287647, guid: 1809dce3a1c410444a86632f6eff5e89, type: 3}
+      propertyPath: bossSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a785588ff0a50643814340150feec65, type: 3}
+    - target: {fileID: 3666687121748287647, guid: 1809dce3a1c410444a86632f6eff5e89, type: 3}
       propertyPath: isBeingBoss
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3666687121748287647, guid: 1809dce3a1c410444a86632f6eff5e89, type: 3}
       propertyPath: BubblePosition
@@ -3629,6 +3633,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
+      propertyPath: bossSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a785588ff0a50643814340150feec65, type: 3}
+    - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
       propertyPath: isBeingBoss
       value: 1
       objectReference: {fileID: 0}
@@ -3733,7 +3741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
       propertyPath: isBeingBoss
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
       propertyPath: BubblePosition
@@ -3938,8 +3946,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
+      propertyPath: bossSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f118511e38aa94645bd8fec762b93fe5, type: 3}
+    - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
       propertyPath: isBeingBoss
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1347226362201826503, guid: f3a63f70d73157d46bc1aaa89db7ea6f, type: 3}
       propertyPath: BubblePosition
