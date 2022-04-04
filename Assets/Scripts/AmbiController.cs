@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AmbiController : MonoBehaviour
 {
-    [SerializeField] private AudioSource source;
+    private AudioSource source;
     void Start()
     {
-        if (!source) source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
 
         BossFightController.onStartFight += HandleAudio;
         BossFightController.onEndFight += HandleUnMute;
