@@ -16,25 +16,27 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float extinguisherAwait = 2f;
     [SerializeField] private ParticleSystem extinguisher;
 
+    private BossFightController bossFightController;
     private Coroutine coroutine;
 
     private bool isBossFight;
 
     private void Start()
     {
-        BossFightController.onStartFight += OnStartFight;
-        BossFightController.onEndFight += OnEndFight;
+        bossFightController = FindObjectOfType<BossFightController>();
+        /*BossFightController.onStartFight += OnStartFight;
+        BossFightController.onEndFight += OnEndFight;*/
     }
 
     private void OnDestroy()
     {
-        BossFightController.onStartFight -= OnStartFight;
-        BossFightController.onEndFight -= OnEndFight;
+        /*BossFightController.onStartFight -= OnStartFight;
+        BossFightController.onEndFight -= OnEndFight;*/
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyInput) && !isBossFight && coroutine == null)
+        if (Input.GetKeyDown(keyInput) && bossFightController.CanStartFight && coroutine == null)
         {
             OnInputAction.Invoke();
         }

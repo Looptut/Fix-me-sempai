@@ -12,6 +12,8 @@ public class WorkerTimer : MonoBehaviour
     [SerializeField]
     [Header("Время горения")]
     private float maxTimeToFire = 10f;
+    [SerializeField]
+    private Image backImage;
 
     private Image iconTimer;
 
@@ -27,6 +29,7 @@ public class WorkerTimer : MonoBehaviour
         iconTimer = GetComponent<Image>();
 
         iconTimer.enabled = false;
+        backImage.enabled = false;
     }
 
     /// <summary>
@@ -40,6 +43,7 @@ public class WorkerTimer : MonoBehaviour
             return;
         }
         iconTimer.enabled = true;
+        backImage.enabled = true;
         iconTimer.color = Color.green;
         iconTimer.fillAmount = 1;
         currTime = 0;
@@ -52,8 +56,13 @@ public class WorkerTimer : MonoBehaviour
     public void StopTimer()
     {
         iconTimer.enabled = false;
-        StopCoroutine(timer);
-        timer = null;
+        backImage.enabled = false;
+
+        if (timer != null)
+        {
+            StopCoroutine(timer);
+            timer = null;
+        }
     }
 
     private IEnumerator Timer()
