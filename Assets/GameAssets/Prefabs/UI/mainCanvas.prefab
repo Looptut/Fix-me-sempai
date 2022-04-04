@@ -127,7 +127,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 10
+  m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -149,12 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -286,11 +286,11 @@ RectTransform:
   m_Father: {fileID: 2047168842192945657}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: 531}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 600, y: 40}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &5852851797920451269
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -449,17 +449,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047168842192945657}
     m_Modifications:
+    - target: {fileID: 6668802212034772768, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
+      propertyPath: m_Text
+      value: 00:00
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668802212034772768, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668802212034772768, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668802212034772768, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668802212034772768, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772773, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_Name
       value: TimerDigital
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_RootOrder
@@ -475,19 +495,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -2400
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1410
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,11 +539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 950
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 529
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6668802212034772774, guid: 369fc1d7051a21042a0e39cc50011195, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
