@@ -14,6 +14,8 @@ public class ProgressBar : MonoBehaviour
     public float fillSpeed;
     public int startPoints;
     public int maxPoints;
+    public int workerPoints;
+    public int bossPoints;
     public static event Action<bool> onProgressEnd = delegate { };
 
     public int GetCurrentPoints() { return currentPoints; }
@@ -25,6 +27,7 @@ public class ProgressBar : MonoBehaviour
     void Start()
     {
         ChangeProgress(startPoints);
+        Worker.OnStateChange += WorkerChanged;
     }
 
     void Update()
@@ -39,6 +42,14 @@ public class ProgressBar : MonoBehaviour
             onProgressEnd(true);
     }
 
+    private void WorkerChanged(bool result, bool boss) 
+    {
+        if (result && boss) ChangeProgress(bossPoints);
+        if (result && !boss) ChangeProgress(workerPoints);
+        if (!result && boss) ChangeProgress(-bossPoints);
+        if (!result && !boss) ChangeProgress(-workerPoints);
+    }
+
     public void ChangeProgress(int progressValue)
     {
         if ((currentPoints + progressValue) > maxPoints)
@@ -47,5 +58,6 @@ public class ProgressBar : MonoBehaviour
             progressValue = -currentPoints;
         currentPoints += progressValue;
         targetProgress = slider.value + (float)progressValue / maxPoints;
+        //slider.value = targetProgress;
     }
 }

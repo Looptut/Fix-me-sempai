@@ -228,6 +228,8 @@ MonoBehaviour:
   fillSpeed: 0.7
   startPoints: 15
   maxPoints: 100
+  workerPoints: 5
+  bossPoints: 10
 --- !u!1001 &7224054615421614998
 PrefabInstance:
   m_ObjectHideFlags: 0
