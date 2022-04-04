@@ -20,6 +20,7 @@ public class GameStateController : MonoBehaviour
     */
 
     private bool isWin;
+    private bool isEnd;
 
     private void Start()
     {
@@ -37,6 +38,10 @@ public class GameStateController : MonoBehaviour
     private void OnProgressEnd(bool isWin)
     {
         //DisableCanvases();
+
+        if (isEnd) return;
+
+        isEnd = true;
         this.isWin = isWin;
         Invoke(nameof(SetWindow), 3);
     }
@@ -44,6 +49,10 @@ public class GameStateController : MonoBehaviour
     private void OnTimeIsOver()
     {
         //DisableCanvases();
+
+        if (isEnd) return;
+
+        isEnd = true;
         Invoke(nameof(SetWindow), 3);
     }
 
