@@ -230,7 +230,6 @@ MonoBehaviour:
   createAllWindows: 0
   firstWindowData: {fileID: 11400000, guid: edcfa29d1de73104999580e84b231189, type: 2}
   windowsData:
-  - {fileID: 11400000, guid: edcfa29d1de73104999580e84b231189, type: 2}
   - {fileID: 11400000, guid: 0940515b68696be4caa10626cf321beb, type: 2}
   - {fileID: 11400000, guid: 2afc9b2237e801e4ba5f38bc1c695826, type: 2}
 --- !u!1 &2637487300269593336
