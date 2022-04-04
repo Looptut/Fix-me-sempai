@@ -25,6 +25,7 @@ public class Worker : MonoBehaviour
     public Transform BubblePosition;
     public Transform CheckPoint => checkPoint;
 
+    [SerializeField] private Sprite bossSprite;
     [SerializeField] private Transform fire;
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
@@ -94,6 +95,7 @@ public class Worker : MonoBehaviour
                 if (timer)
                     timer.StopTimer();
                 BossFightController.onEndFight += OnEndFight;
+                bossFightController.BossIcon = bossSprite;
                 bossFightController.StartBossFight();
             }
         }

@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9d1956f69f95a49853ecdb776b0184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossIcon: {fileID: 0}
+  BossIcon: {fileID: 21300000, guid: 0a785588ff0a50643814340150feec65, type: 3}
   targetSuccessCount: 1
   maxFailCount: 1
   secondsToFight: 5
