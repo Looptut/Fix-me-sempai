@@ -30,6 +30,8 @@ public class BossFightController : MonoBehaviour
     /// </summary>
     public int SecondsToFight => secondsToFight;
 
+    public bool CanStartFight => timer == null;
+
     public Sprite BossIcon;
 
     [SerializeField]
@@ -50,13 +52,15 @@ public class BossFightController : MonoBehaviour
     [Space]
     [SerializeField]
     [Header("Задержка после боссфайта, чтобы нельзя было начать новый сразу и анимации успели произайти")]
-    private float delay = 2;
+    private float delay = 3f;
 
     private int currSuccessCount = 0;
     private int currFailCount = -1;
     private int secondsLeft;
 
     private Coroutine timer;
+
+    private bool isEnd;
 
     private void Start()
     {
@@ -81,7 +85,7 @@ public class BossFightController : MonoBehaviour
 
         currSuccessCount = 0;
         currFailCount = -1;
-
+        isEnd = false;
         timer = StartCoroutine(Timer());
 
         onStartFight();
@@ -112,7 +116,7 @@ public class BossFightController : MonoBehaviour
     {
         secondsLeft = secondsToFight;
 
-        while (enabled)
+        while (enabled && !isEnd)
         {
             yield return new WaitForSeconds(1f);
 
@@ -128,7 +132,7 @@ public class BossFightController : MonoBehaviour
 
     private void OnPlayerPress(bool isSuccess)
     {
-        if (timer == null) return;
+        if (isEnd) return;
 
         if (isSuccess)
         {
@@ -152,7 +156,11 @@ public class BossFightController : MonoBehaviour
 
     private void EndFight(bool isSuccess)
     {
-        StopCoroutine(timer);
+        if (timer != null)
+        {
+            StopCoroutine(timer);
+        }
+        isEnd = true;
         onEndFight(isSuccess);
         Invoke(nameof(ResetCoroutine), delay);
     }
@@ -162,12 +170,7 @@ public class BossFightController : MonoBehaviour
     /// </summary>
     public void ForceEndFight()
     {
-        if (timer != null)
-        {
-            StopCoroutine(timer);
-            timer = null;
-            onEndFight(false);
-        }
+        EndFight(false);
     }
 
     private void ResetCoroutine()
