@@ -1593,6 +1593,7 @@ MonoBehaviour:
   - LevelTime: 60
     Interval: 20
     WorkersCount: 3
+  isTestingWithoutTutorial: 1
 --- !u!1001 &1438340510
 PrefabInstance:
   m_ObjectHideFlags: 0
