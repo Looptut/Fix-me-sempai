@@ -67,4 +67,10 @@ public class HumbleDialogs : MonoBehaviour
     {
         bubble.gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        TutorialDialog.OnTutorialEnds -= SetDialogs;
+        ProgressBar.onProgressEnd -= HandledeactivateProgress;
+    }
 }

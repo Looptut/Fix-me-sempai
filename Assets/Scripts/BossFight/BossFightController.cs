@@ -35,6 +35,9 @@ public class BossFightController : MonoBehaviour
     public Sprite BossIcon;
 
     [SerializeField]
+    private GameObject UI;
+
+    [SerializeField]
     [Min(1)]
     [Header("Количество удачных нажатий для победы")]
     private int targetSuccessCount = 1;
@@ -83,6 +86,7 @@ public class BossFightController : MonoBehaviour
             return;
         }
 
+        UI.SetActive(false);
         currSuccessCount = 0;
         currFailCount = -1;
         isEnd = false;
@@ -176,6 +180,7 @@ public class BossFightController : MonoBehaviour
     private void ResetCoroutine()
     {
         timer = null;
+        UI.SetActive(true);
     }
 
 #if UNITY_EDITOR

@@ -27,7 +27,7 @@ public class AmbiController : MonoBehaviour
 
     private void OnDestroy()
     {
-        BossFightController.onStartFight += HandleAudio;
-        BossFightController.onEndFight += HandleUnMute;
+        BossFightController.onStartFight -= HandleAudio;
+        BossFightController.onEndFight -= HandleUnMute;
     }
 }
