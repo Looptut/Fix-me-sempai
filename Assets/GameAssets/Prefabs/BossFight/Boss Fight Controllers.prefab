@@ -259,6 +259,7 @@ MonoBehaviour:
   targetSuccessCount: 1
   maxFailCount: 1
   secondsToFight: 5
+  delay: 3
 --- !u!1 &2637487301156243531
 GameObject:
   m_ObjectHideFlags: 0

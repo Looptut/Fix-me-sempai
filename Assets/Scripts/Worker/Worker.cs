@@ -23,13 +23,13 @@ public class Worker : MonoBehaviour
     public Transform BubblePosition;
     public Transform CheckPoint => checkPoint;
 
-    [SerializeField] private BossFightController bossFightController;
     [SerializeField] private PlayerInput player;
     [SerializeField] private Transform fire;
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
     [SerializeField] private Transform checkPoint;
-    
+
+    private BossFightController bossFightController;
     private WorkerTimer timer;
 
     public bool IsBeingTired
@@ -85,27 +85,28 @@ public class Worker : MonoBehaviour
         }
         if (IsBeingTired && IsBeingBoss)
         {
-
-            if (timer) timer.StopTimer();
-            BossFightController.onEndFight += OnEndFight;
-            bossFightController.StartBossFight();
+            if (bossFightController.CanStartFight)
+            {
+                if (timer) timer.StopTimer();
+                BossFightController.onEndFight += OnEndFight;
+                bossFightController.StartBossFight();
+            }
         }
         ActionDone.Invoke();
     }
 
     private void OnEndFight(bool isSuccess)
     {
+        IsBeingTired = false;
+        fire.gameObject.SetActive(false);
+
         if (isSuccess)
         {
-            fire.gameObject.SetActive(false);
-            IsBeingTired = false;
             player.DoAction(fire);
         }
+
         OnStateChange(isSuccess, isBeingBoss);
         BossFightController.onEndFight -= OnEndFight;
-
-
-        if (timer) timer.StopTimer();
     }
 
     /// <summary>
