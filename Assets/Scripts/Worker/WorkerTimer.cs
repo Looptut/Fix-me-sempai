@@ -25,6 +25,8 @@ public class WorkerTimer : MonoBehaviour
     {
         worker = GetComponentInParent<Worker>();
         iconTimer = GetComponent<Image>();
+
+        iconTimer.enabled = false;
     }
 
     /// <summary>
@@ -37,7 +39,9 @@ public class WorkerTimer : MonoBehaviour
             Debug.LogError("Попытка запустить уже идущий таймер");
             return;
         }
-
+        iconTimer.enabled = true;
+        iconTimer.color = Color.green;
+        iconTimer.fillAmount = 1;
         currTime = 0;
         timer = StartCoroutine(Timer());
     }
@@ -47,6 +51,7 @@ public class WorkerTimer : MonoBehaviour
     /// </summary>
     public void StopTimer()
     {
+        iconTimer.enabled = false;
         StopCoroutine(timer);
         timer = null;
     }
@@ -59,7 +64,9 @@ public class WorkerTimer : MonoBehaviour
 
             currTime += Time.deltaTime;
 
-            iconTimer.fillAmount = currTime / maxTimeToFire;
+            iconTimer.fillAmount = 1 - currTime / maxTimeToFire;
+
+            iconTimer.color = iconTimer.fillAmount <= 0.33f ? Color.red : Color.green;
 
             if (currTime >= maxTimeToFire)
             {
