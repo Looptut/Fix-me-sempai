@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -20,19 +19,9 @@ public class PlayerInput : MonoBehaviour
     private BossFightController bossFightController;
     private Coroutine coroutine;
 
-    private bool isBossFight;
-
     private void Start()
     {
         bossFightController = FindObjectOfType<BossFightController>();
-        /*BossFightController.onStartFight += OnStartFight;
-        BossFightController.onEndFight += OnEndFight;*/
-    }
-
-    private void OnDestroy()
-    {
-        /*BossFightController.onStartFight -= OnStartFight;
-        BossFightController.onEndFight -= OnEndFight;*/
     }
 
     private void Update()
@@ -63,15 +52,5 @@ public class PlayerInput : MonoBehaviour
         movement.CanMove = true;
         view.GetExtiguisher();
         coroutine = null;
-    }
-
-    private void OnStartFight()
-    {
-        isBossFight = true;
-    }
-
-    private void OnEndFight(bool isSuccess)
-    {
-        isBossFight = false;
     }
 }

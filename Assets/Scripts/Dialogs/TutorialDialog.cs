@@ -6,18 +6,21 @@ using UnityEngine.Events;
 
 public class TutorialDialog : MonoBehaviour
 {
-    public UnityEvent OnShowExtinguisher;
-
     [SerializeField] private KeyCode skipTutorial = KeyCode.Tab;
 
     public static event Action OnTutorialEnds = delegate { };
 
+    [SerializeField] private SpriteRenderer playerView;
+    [SerializeField] private Sprite extinguisher;
+    private Sprite baseView;
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private Transform president;
     [SerializeField] private DialogBubble bubble;
     [SerializeField] private float waitStartTutorial = 2f;
     [SerializeField] private float waitNextText = 5f;
     [SerializeField] private int extinguisherIndex = 5;
+
+    [SerializeField] private Canvas UICanvas;
     public List<string> speeches;
 
     private Coroutine coroutine;
@@ -28,6 +31,10 @@ public class TutorialDialog : MonoBehaviour
 
     private void Start()
     {
+        if (UICanvas != null)
+        {
+            UICanvas.gameObject.SetActive(false);
+        }
         coroutine = StartCoroutine(Tutorial());
     }
 
@@ -43,6 +50,10 @@ public class TutorialDialog : MonoBehaviour
         movement.CanMove = true;
         OnTutorialEnds.Invoke();
         gameObject.SetActive(false);
+        if (UICanvas != null)
+        {
+            UICanvas.gameObject.SetActive(true);
+        }
     }
 
     private void Update()
@@ -66,12 +77,19 @@ public class TutorialDialog : MonoBehaviour
         for (int i = 1; i < speeches.Count; i++)
         {
             yield return wait;
+
+            if (i == extinguisherIndex + 1)
+            {
+                playerView.sprite = baseView;
+            }
+
             bubble.SetText(speeches[i]);
             if (source && clip != null)
                 source.PlayOneShot(clip);
+            baseView = playerView.sprite;
             if (i == extinguisherIndex)
             {
-                OnShowExtinguisher.Invoke();
+                playerView.sprite = extinguisher;
             }
         }
         yield return wait;
@@ -80,5 +98,9 @@ public class TutorialDialog : MonoBehaviour
         OnTutorialEnds.Invoke();
         coroutine = null;
         gameObject.SetActive(false);
+        if (UICanvas != null)
+        {
+            UICanvas.gameObject.SetActive(true);
+        }
     }
 }
