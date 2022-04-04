@@ -47,6 +47,11 @@ public class BossFightController : MonoBehaviour
     [Header("Секунд на файт")]
     private int secondsToFight = 5;
 
+    [Space]
+    [SerializeField]
+    [Header("Задержка после боссфайта, чтобы нельзя было начать новый сразу и анимации успели произайти")]
+    private float delay = 2;
+
     private int currSuccessCount = 0;
     private int currFailCount = -1;
     private int secondsLeft;
@@ -90,6 +95,12 @@ public class BossFightController : MonoBehaviour
     /// <param name="secondsToFight"> Секунд на файт </param>
     public void StartBossFight(int targetSuccessCount, int maxFailCount, int secondsToFight)
     {
+        if (timer != null)
+        {
+            Debug.LogError("Битва с боссом уже начата!");
+            return;
+        }
+
         this.targetSuccessCount = targetSuccessCount;
         this.maxFailCount = maxFailCount;
         this.secondsToFight = secondsToFight;
@@ -142,8 +153,8 @@ public class BossFightController : MonoBehaviour
     private void EndFight(bool isSuccess)
     {
         StopCoroutine(timer);
-        timer = null;
         onEndFight(isSuccess);
+        Invoke(nameof(ResetCoroutine), delay);
     }
 
     /// <summary>
@@ -157,6 +168,11 @@ public class BossFightController : MonoBehaviour
             timer = null;
             onEndFight(false);
         }
+    }
+
+    private void ResetCoroutine()
+    {
+        timer = null;
     }
 
 #if UNITY_EDITOR

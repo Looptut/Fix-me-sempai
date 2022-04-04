@@ -34,7 +34,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyInput) && inputEvent.IsActive && !isBossFight && coroutine == null)
+        if (Input.GetKeyDown(keyInput) && !isBossFight && coroutine == null)
         {
             OnInputAction.Invoke();
         }

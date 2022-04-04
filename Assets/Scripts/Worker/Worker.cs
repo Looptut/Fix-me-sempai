@@ -8,10 +8,16 @@ public class Worker : MonoBehaviour
 {
     public static event Action ATTENTION_BOSS_ON_FIRE = delegate { };
 
+    /// <summary>
+    /// Работник сгорел или потух
+    /// 1 bool: true - потух, false - сгорел
+    /// 2 bool: true - босс, false - обычный работяга
+    /// </summary>
+    public static Action<bool, bool> OnStateChange = delegate { };
+
     public UnityEvent ActionDone = new UnityEvent();
 
     public event Action<Worker> OnAction = delegate { };
-    public event Action<Worker> OnBeingTired = delegate { };
     public static Action OnBeingBoss = delegate { };
 
     public Transform BubblePosition;
@@ -23,6 +29,8 @@ public class Worker : MonoBehaviour
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
     [SerializeField] private Transform checkPoint;
+    
+    private WorkerTimer timer;
 
     public bool IsBeingTired
     {
@@ -36,9 +44,11 @@ public class Worker : MonoBehaviour
                 {
                     if (IsBeingBoss)
                         ATTENTION_BOSS_ON_FIRE();
-                    OnBeingTired.Invoke(this);
                     if (fire != null)
                         fire.gameObject.SetActive(true);
+
+                    if (timer)
+                        timer.StartTimer();
                 }
             }
         }
@@ -48,6 +58,7 @@ public class Worker : MonoBehaviour
     private void Start()
     {
         bossFightController = FindObjectOfType<BossFightController>();
+        timer = GetComponentInChildren<WorkerTimer>();
 
         if (fire != null)
             fire.gameObject.SetActive(false);
@@ -69,9 +80,13 @@ public class Worker : MonoBehaviour
             fire.gameObject.SetActive(false);
             IsBeingTired = false;
             player.DoAction(fire);
+
+            if (timer) timer.StopTimer();
         }
         if (IsBeingTired && IsBeingBoss)
         {
+
+            if (timer) timer.StopTimer();
             BossFightController.onEndFight += OnEndFight;
             bossFightController.StartBossFight();
         }
@@ -86,6 +101,21 @@ public class Worker : MonoBehaviour
             IsBeingTired = false;
             player.DoAction(fire);
         }
+        OnStateChange(isSuccess, isBeingBoss);
         BossFightController.onEndFight -= OnEndFight;
+
+
+        if (timer) timer.StopTimer();
+    }
+
+    /// <summary>
+    /// Время таймера вышло
+    /// </summary>
+    /// </summary>
+    public void FailFromTimer()
+    {
+        IsBeingTired = false;
+        fire.gameObject.SetActive(false);
+        OnStateChange(false, IsBeingBoss);
     }
 }
