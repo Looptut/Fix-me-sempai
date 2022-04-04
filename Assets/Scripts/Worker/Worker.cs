@@ -23,7 +23,6 @@ public class Worker : MonoBehaviour
     public Transform BubblePosition;
     public Transform CheckPoint => checkPoint;
 
-    [SerializeField] private PlayerInput player;
     [SerializeField] private Transform fire;
     [SerializeField] private bool isBeingTired = false;
     [SerializeField] private bool isBeingBoss = false;
@@ -31,6 +30,7 @@ public class Worker : MonoBehaviour
 
     private BossFightController bossFightController;
     private WorkerTimer timer;
+    private PlayerInput player;
 
     public bool IsBeingTired
     {
@@ -58,6 +58,7 @@ public class Worker : MonoBehaviour
     private void Start()
     {
         bossFightController = FindObjectOfType<BossFightController>();
+        player = FindObjectOfType<PlayerInput>();
         timer = GetComponentInChildren<WorkerTimer>();
 
         if (fire != null)
