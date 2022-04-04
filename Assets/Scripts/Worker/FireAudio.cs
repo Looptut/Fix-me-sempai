@@ -13,6 +13,8 @@ public class FireAudio : MonoBehaviour
 
     private void Start()
     {
+        workers = new List<Worker>(FindObjectsOfType<Worker>());
+
         foreach (var worker in workers)
         {
             worker.OnBeingTired += HandleFire;

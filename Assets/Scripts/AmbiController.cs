@@ -8,6 +8,8 @@ public class AmbiController : MonoBehaviour
     [SerializeField] private AudioSource source;
     void Start()
     {
+        if (!source) source = GetComponent<AudioSource>();
+
         BossFightController.onStartFight += HandleAudio;
         BossFightController.onEndFight += HandleUnMute;
     }
