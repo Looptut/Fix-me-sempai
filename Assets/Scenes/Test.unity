@@ -1302,16 +1302,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e021362973cf2d4681263f321cdaa90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossTimer: 050000000f00000019000000
+  bossTimer: 050000001400000037000000
   levels:
   - LevelTime: 0
     Interval: 4
     WorkersCount: 1
-  - LevelTime: 20
+  - LevelTime: 15
     Interval: 5
     WorkersCount: 2
-  - LevelTime: 40
-    Interval: 10
+  - LevelTime: 50
+    Interval: 3
     WorkersCount: 3
   isTestingWithoutTutorial: 0
 --- !u!1 &1581779765
