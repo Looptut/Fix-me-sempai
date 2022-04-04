@@ -32,13 +32,13 @@ public class TweenAlpha : TweenBase
         if (sprite)
         {
             Color tmpColor = SetSpriteColor();
-            currTween = sprite.DOColor(tmpColor, duration).SetEase(ease);
+            currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime);
         }
 
         if (image)
         {
             Color tmpColor = SetImageColor();
-            currTween = image.DOColor(tmpColor, duration).SetEase(ease);
+            currTween = image.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime);
         }
     }
 
@@ -48,10 +48,10 @@ public class TweenAlpha : TweenBase
         {
             Color tmpColor = SetSpriteColor();
 
-            currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).OnComplete(() =>
+            currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
             {
                 tmpColor.a = start;
-                currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).OnComplete(() =>
+                currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
                 {
                     Play();
                 });
@@ -62,10 +62,10 @@ public class TweenAlpha : TweenBase
         {
             Color tmpColor = SetImageColor();
 
-            currTween = image.DOColor(tmpColor, duration).SetEase(ease).OnComplete(() =>
+            currTween = image.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
             {
                 tmpColor.a = start;
-                currTween = image.DOColor(tmpColor, duration).SetEase(ease).OnComplete(() =>
+                currTween = image.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
                 {
                     Play();
                 });
@@ -79,7 +79,7 @@ public class TweenAlpha : TweenBase
         {
             Color tmpColor = SetSpriteColor();
 
-            currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).OnComplete(() =>
+            currTween = sprite.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
             {
                 tmpColor.a = start;
                 sprite.color = tmpColor;
@@ -91,7 +91,7 @@ public class TweenAlpha : TweenBase
         {
             Color tmpColor = SetImageColor();
 
-            currTween = image.DOColor(tmpColor, duration).SetEase(ease).OnComplete(() =>
+            currTween = image.DOColor(tmpColor, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
             {
                 tmpColor.a = start;
                 image.color = tmpColor;

@@ -8,6 +8,8 @@ public class TutorialDialog : MonoBehaviour
 {
     public UnityEvent OnShowExtinguisher;
 
+    [SerializeField] private KeyCode skipTutorial = KeyCode.Tab;
+
     public static event Action OnTutorialEnds = delegate { };
 
     [SerializeField] private PlayerMovement movement;
@@ -20,6 +22,10 @@ public class TutorialDialog : MonoBehaviour
 
     private Coroutine coroutine;
 
+    [SerializeField]
+    private AudioSource source;
+    [SerializeField] private AudioClip clip;
+
     private void Start()
     {
         coroutine = StartCoroutine(Tutorial());
@@ -28,6 +34,7 @@ public class TutorialDialog : MonoBehaviour
     [ContextMenu("Skip tutorial")]
     public void SkipTutorial()
     {
+
         if (coroutine != null)
         {
             StopCoroutine(coroutine);
@@ -35,6 +42,15 @@ public class TutorialDialog : MonoBehaviour
         bubble.gameObject.SetActive(false);
         movement.CanMove = true;
         OnTutorialEnds.Invoke();
+        gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(skipTutorial))
+        {
+            SkipTutorial();
+        }
     }
 
     private IEnumerator Tutorial()
@@ -45,10 +61,14 @@ public class TutorialDialog : MonoBehaviour
         bubble.transform.position = president.position;
         bubble.SetText(speeches[0]);
         bubble.gameObject.SetActive(true);
+        if (source && clip != null)
+            source.PlayOneShot(clip);
         for (int i = 1; i < speeches.Count; i++)
         {
             yield return wait;
             bubble.SetText(speeches[i]);
+            if (source && clip != null)
+                source.PlayOneShot(clip);
             if (i == extinguisherIndex)
             {
                 OnShowExtinguisher.Invoke();
@@ -59,5 +79,6 @@ public class TutorialDialog : MonoBehaviour
         movement.CanMove = true;
         OnTutorialEnds.Invoke();
         coroutine = null;
+        gameObject.SetActive(false);
     }
 }

@@ -26,15 +26,15 @@ public class TweenScale : TweenBase
     protected override void PlayOnce()
     {
         transform.localScale = Vector3.one * startScale;
-        currTween = transform.DOScale(end, duration).SetEase(ease);
+        currTween = transform.DOScale(end, duration).SetEase(ease).SetUpdate(useUnscaledTime);
     }
 
     protected override void PlayPingPong()
     {
         transform.localScale = Vector3.one * startScale;
-        currTween = transform.DOScale(end, duration).SetEase(ease).OnComplete(() =>
+        currTween = transform.DOScale(end, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
         {
-            currTween = transform.DOScale(startScale, duration).SetEase(ease).OnComplete(() =>
+            currTween = transform.DOScale(startScale, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
             {
                 Play();
             });
@@ -44,7 +44,7 @@ public class TweenScale : TweenBase
     protected override void PlayLoop()
     {
         transform.localScale = Vector3.one * startScale;
-        currTween = transform.DOScale(end, duration).SetEase(ease).OnComplete(() =>
+        currTween = transform.DOScale(end, duration).SetEase(ease).SetUpdate(useUnscaledTime).OnComplete(() =>
         {
             Play();
         });
