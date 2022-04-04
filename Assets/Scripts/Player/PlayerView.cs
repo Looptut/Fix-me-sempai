@@ -31,10 +31,14 @@ public class PlayerView : MonoBehaviour
     {
         Vector3 moveDirection = (transform.position - position).normalized;
 
-        if (moveDirection == new Vector3(-1, 0) || moveDirection == new Vector3(-1, -1)) spriteNum = 0;
-        if (moveDirection == new Vector3(0, 1) || moveDirection == new Vector3(-1, 1)) spriteNum = 1;
-        if (moveDirection == new Vector3(0, -1) || moveDirection == new Vector3(1, -1)) spriteNum = 2;
-        if (moveDirection == new Vector3(1, 0) || moveDirection == new Vector3(1, 1)) spriteNum = 3;
+        if (moveDirection == new Vector3(-1, 0) || moveDirection == new Vector3(-1, -1))
+            spriteNum = 0;
+        if (moveDirection == new Vector3(0, 1) || moveDirection == new Vector3(-1, 1))
+            spriteNum = 1;
+        if (moveDirection == new Vector3(0, -1) || moveDirection == new Vector3(1, -1))
+            spriteNum = 2;
+        if (moveDirection == new Vector3(1, 0) || moveDirection == new Vector3(1, 1))
+            spriteNum = 3;
 
         spriteRenderer.sprite = sprites[spriteNum];
 
@@ -47,7 +51,7 @@ public class PlayerView : MonoBehaviour
         //if ((transform.position - position).normalized == new Vector3(1, 0)) spriteRenderer.sprite = sprites[2];
         //if ((transform.position - position).normalized == new Vector3(1, 1)) spriteRenderer.sprite = sprites[3];
     }
-    public void GetExtiguisher() 
+    public void GetExtiguisher()
     {
         if (spriteRenderer.sprite == sprites[spriteNum])
             spriteRenderer.sprite = spritesFire[spriteNum];

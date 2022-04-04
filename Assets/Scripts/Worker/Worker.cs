@@ -8,6 +8,8 @@ public class Worker : MonoBehaviour
 {
     public static event Action ATTENTION_BOSS_ON_FIRE = delegate { };
 
+    public event Action OnBeingTired = delegate { };
+
     /// <summary>
     /// Работник сгорел или потух
     /// 1 bool: true - потух, false - сгорел
@@ -46,7 +48,7 @@ public class Worker : MonoBehaviour
                         ATTENTION_BOSS_ON_FIRE();
                     if (fire != null)
                         fire.gameObject.SetActive(true);
-
+                    OnBeingTired.Invoke();
                     if (timer)
                         timer.StartTimer();
                 }
@@ -82,13 +84,15 @@ public class Worker : MonoBehaviour
             IsBeingTired = false;
             player.DoAction(fire);
 
-            if (timer) timer.StopTimer();
+            if (timer)
+                timer.StopTimer();
         }
         if (IsBeingTired && IsBeingBoss)
         {
             if (bossFightController.CanStartFight)
             {
-                if (timer) timer.StopTimer();
+                if (timer)
+                    timer.StopTimer();
                 BossFightController.onEndFight += OnEndFight;
                 bossFightController.StartBossFight();
             }
