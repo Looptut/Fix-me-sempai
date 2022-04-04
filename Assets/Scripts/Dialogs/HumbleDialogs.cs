@@ -11,6 +11,11 @@ public class HumbleDialogs : MonoBehaviour
     [SerializeField] private DialogBubble bubble;
     [SerializeField] private float viewDuration = 3f;
     [SerializeField] private float delay = 5f;
+
+    [SerializeField]
+    private AudioSource source;
+    [SerializeField] private AudioClip clip;
+
     private System.Random random;
 
     private Coroutine coroutine;
@@ -19,6 +24,13 @@ public class HumbleDialogs : MonoBehaviour
     {
         random = new System.Random();
         TutorialDialog.OnTutorialEnds += SetDialogs;
+        ProgressBar.onProgressEnd += HandledeactivateProgress;
+    }
+
+    private void HandledeactivateProgress(bool obj)
+    {
+        StopCoroutine(coroutine);
+        bubble.gameObject.SetActive(false);
     }
 
     private void SetDialogs()
@@ -41,6 +53,8 @@ public class HumbleDialogs : MonoBehaviour
         bubble.transform.position = workers[random.Next(0, workers.Count)].BubblePosition.position;
         bubble.SetText(speeches[random.Next(0, speeches.Count)]);
         bubble.gameObject.SetActive(true);
+        if (source && clip != null)
+            source.PlayOneShot(clip);
         Invoke(nameof(DeactivateSpeech), viewDuration);
     }
 
