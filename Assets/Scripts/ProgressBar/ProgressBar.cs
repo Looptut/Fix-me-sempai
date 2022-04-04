@@ -4,25 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
 public class ProgressBar : MonoBehaviour
 {
-    private Slider slider;
+    private Image image;
     private float targetProgress = 0;
-    private int currentPoints = 0;
+    private int currentPoints = 1;
 
-    public float fillSpeed;
     public int startPoints;
     public int maxPoints;
-    public int workerPoints;
-    public int bossPoints;
+    public int workerPointsUp;
+    public int bossPointsUp;
+    public int workerPointsDown;
+    public int bossPointsDown;
     public static event Action<bool> onProgressEnd = delegate { };
 
     public int GetCurrentPoints() { return currentPoints; }
 
     private void Awake()
     {
-        slider = gameObject.GetComponent<Slider>();
+        image = gameObject.GetComponent<Image>();
+        image = gameObject.GetComponentInChildren<Image>().GetComponentInChildren<Image>();
+        currentPoints = startPoints;
     }
     void Start()
     {
@@ -30,24 +32,31 @@ public class ProgressBar : MonoBehaviour
         Worker.OnStateChange += WorkerChanged;
     }
 
+    private void OnDestroy()
+    {
+        Worker.OnStateChange -= WorkerChanged;
+    }
     void Update()
     {
-        if (slider.value < targetProgress)
-            slider.value += fillSpeed * Time.deltaTime;
-        if (slider.value > targetProgress)
-            slider.value -= fillSpeed * Time.deltaTime;
-        if (slider.value == 0)
+        if (currentPoints == 0)
+        {
             onProgressEnd(false);
-        if (slider.value == slider.maxValue)
+            gameObject.SetActive(false);
+        }
+
+        if (currentPoints == maxPoints)
+        {
             onProgressEnd(true);
+            gameObject.SetActive(false);
+        }
     }
 
     private void WorkerChanged(bool result, bool boss) 
     {
-        if (result && boss) ChangeProgress(bossPoints);
-        if (result && !boss) ChangeProgress(workerPoints);
-        if (!result && boss) ChangeProgress(-bossPoints);
-        if (!result && !boss) ChangeProgress(-workerPoints);
+        if (result && boss) ChangeProgress(bossPointsUp);
+        if (result && !boss) ChangeProgress(workerPointsUp);
+        if (!result && boss) ChangeProgress(-bossPointsDown);
+        if (!result && !boss) ChangeProgress(-workerPointsDown);
     }
 
     public void ChangeProgress(int progressValue)
@@ -57,7 +66,6 @@ public class ProgressBar : MonoBehaviour
         if ((currentPoints + progressValue) < 0)
             progressValue = -currentPoints;
         currentPoints += progressValue;
-        targetProgress = slider.value + (float)progressValue / maxPoints;
-        //slider.value = targetProgress;
+        image.fillAmount = (float)currentPoints / maxPoints;
     }
 }
