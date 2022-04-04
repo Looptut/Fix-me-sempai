@@ -20,6 +20,11 @@ public class HumbleDialogs : MonoBehaviour
 
     private Coroutine coroutine;
 
+    private void Awake()
+    {
+        workers = new List<Worker>(FindObjectsOfType<Worker>());
+    }
+
     private void Start()
     {
         random = new System.Random();

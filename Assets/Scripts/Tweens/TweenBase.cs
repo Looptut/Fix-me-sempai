@@ -62,6 +62,11 @@ public abstract class TweenBase : MonoBehaviour
         }
     }
 
+    public virtual void Rewind()
+    {
+        currTween.Rewind();
+    }
+
     protected abstract void PlayOnce();
 
     protected abstract void PlayPingPong();
