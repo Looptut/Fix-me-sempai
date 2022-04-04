@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 1037159888}
   - component: {fileID: 1037159886}
   - component: {fileID: 1037159891}
+  - component: {fileID: 1037159892}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -940,6 +941,7 @@ MonoBehaviour:
   keyInput: 101
   inputEvent: {fileID: 11400000, guid: 9e7a7479cf0151643b2c9b65bbee336f, type: 2}
   movement: {fileID: 1037159888}
+  view: {fileID: 1037159892}
   extinguisherAwait: 2
   extinguisher: {fileID: 1438340511}
 --- !u!4 &1037159887
@@ -1023,6 +1025,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearDistance: 1
   playerInput: {fileID: 1037159886}
+--- !u!114 &1037159892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037159885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1750af8982c0f724da10a3871f4942b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1553309326}
+  sprites:
+  - {fileID: 21300000, guid: 4aa0ff3c7a4101449ae2509fa55bdee0, type: 3}
+  - {fileID: 21300000, guid: 67acad36f41dc314ca3582da3d8b0118, type: 3}
+  - {fileID: 21300000, guid: e0b71d4d62b80a54e8f07ad9d442412e, type: 3}
+  - {fileID: 21300000, guid: 4fb4216e051148e46bf0cd576fdf0ffa, type: 3}
+  spritesFire:
+  - {fileID: 21300000, guid: 4d0bd8e25d2651644baff2381d4a2e33, type: 3}
+  - {fileID: 21300000, guid: d7f9bad9f1031ad41aa1b1fc21d24d10, type: 3}
+  - {fileID: 21300000, guid: 29a4f4792d45de64d8c6688a426bd155, type: 3}
+  - {fileID: 21300000, guid: 94fd608238af1944fb82cacf00b09945, type: 3}
 --- !u!1 &1136716715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,8 +1913,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4aa0ff3c7a4101449ae2509fa55bdee0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

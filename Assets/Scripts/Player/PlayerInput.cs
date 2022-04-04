@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private KeyCode keyInput = KeyCode.E;
     [SerializeField] private CustomEvent inputEvent;
     [SerializeField] private PlayerMovement movement;
+    [SerializeField] private PlayerView view;
 
     [Space]
     [Header("Action")]
@@ -51,12 +52,14 @@ public class PlayerInput : MonoBehaviour
     private IEnumerator Extinguisher(Transform fire)
     {
         movement.CanMove = false;
+        view.GetExtiguisher();
         extinguisher.transform.position = fire.position;
         extinguisher.gameObject.SetActive(true);
         fire.gameObject.SetActive(false);
         yield return new WaitForSeconds(extinguisherAwait);
         extinguisher.gameObject.SetActive(false);
         movement.CanMove = true;
+        view.GetExtiguisher();
         coroutine = null;
     }
 
